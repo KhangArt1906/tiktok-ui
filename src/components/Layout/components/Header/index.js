@@ -10,9 +10,12 @@ import {
   faSignOut,
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 import Tippy from "@tippyjs/react/";
 import "tippy.js/dist/tippy.css";
+
+import routesConfig from "~/config/routes";
 
 import Button from "~/components/Button";
 import styles from "./Header.module.scss";
@@ -98,7 +101,9 @@ function Header() {
   return (
     <header className={cx("wrapper")}>
       <div className={cx("inner")}>
-        <img src={images.logo} alt="Tik tok" />
+        <Link to={routesConfig.home} className={cx("logo-link")}>
+          <img src={images.logo} alt="Tik tok" />
+        </Link>
 
         <Search />
 
@@ -140,9 +145,9 @@ function Header() {
             {currentUser ? (
               <Image
                 className={cx("user-avatar")}
-                src="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/f065c5db72bb1d7f8938979f32b73fec~c5_100x100.jpeg?x-expires=1689314400&x-signature=C3XDj56XI9ER26vZozc4PxHIGbc%3D"
+                //src="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/f065c5db72bb1d7f8938979f32b73fec~c5_100x100.jpeg?x-expires=1689314400&x-signature=C3XDj56XI9ER26vZozc4PxHIGbc%3D"
                 alt="Nguyen Phuoc Duy Khang"
-                //src="https://files.fullstack.edu.vn/f8-prod/user_avatars/1/623d4b2d95cec.png"
+                src="https://files.fullstack.edu.vn/f8-prod/user_avatars/1/623d4b2d95cec.png"
               />
             ) : (
               <button className={cx("more-btn")}>
