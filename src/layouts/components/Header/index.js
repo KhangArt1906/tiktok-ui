@@ -15,7 +15,7 @@ import { Link } from "react-router-dom";
 import Tippy from "@tippyjs/react/";
 import "tippy.js/dist/tippy.css";
 
-import routesConfig from "~/config/routes";
+import config from "~/config";
 
 import Button from "~/components/Button";
 import styles from "./Header.module.scss";
@@ -50,7 +50,7 @@ const MENU_ITEMS = [
   },
   {
     icon: <FontAwesomeIcon icon={faCircleQuestion} />,
-    title: "Freeback and help",
+    title: "Feedback and help",
     to: "/feedback",
   },
   {
@@ -101,7 +101,7 @@ function Header() {
   return (
     <header className={cx("wrapper")}>
       <div className={cx("inner")}>
-        <Link to={routesConfig.home} className={cx("logo-link")}>
+        <Link to={config.routes.home} className={cx("logo-link")}>
           <img src={images.logo} alt="Tik tok" />
         </Link>
 
