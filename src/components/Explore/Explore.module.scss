@@ -1,0 +1,42 @@
+.wrapper {
+  border-top: 1px solid #e3e4e3;
+}
+
+.sidebar-music {
+  padding: 6px 14px;
+  display: flex;
+  flex-wrap: wrap; /* Cho phép các nút xuống dòng khi không đủ không gian */
+  justify-content: flex-start;
+  margin-top: 8px;
+}
+
+.music-btn {
+  border-radius: 4px;
+  border: 1px solid rgba(22, 24, 35, 0.12);
+  display: inline-flex;
+  font-size: 1.6rem;
+  font-weight: 600;
+  justify-content: center;
+  min-width: 120px;
+  padding: 6px 8px;
+  user-select: none;
+  margin: 4px 8px;
+  align-items: center;
+}
+
+.music-btn:hover {
+  background-color: rgba(22, 24, 35, 0.03);
+  cursor: pointer;
+}
+
+.music-icon {
+  display: inline-block;
+  padding-top: 3.6px;
+  margin-right: 3.2px;
+}
+
+.label {
+  font-size: 1.8rem;
+  padding: 8px;
+  font-weight: 600;
+}

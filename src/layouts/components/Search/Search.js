@@ -8,6 +8,7 @@ import AccountItem from "~/components/AccountItem";
 import classNames from "classnames/bind";
 import { SearchIcon } from "~/components/Icons";
 import { useDebounce } from "~/hooks";
+import _, { lowerFirst } from "lodash";
 import styles from "./Search.module.scss";
 import { useEffect, useState, useRef } from "react";
 
@@ -19,28 +20,42 @@ function Search() {
   const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const debouncedValue = useDebounce(searchValue, 500);
+  // const debouncedValue = useDebounce(searchValue, 500);
 
+  // console.log(debouncedValue);
+  // const debouncedValuee = _.debounce(() => setSearchValue(searchValue), 300);
+
+  // console.log(debouncedValuee);
   const inputRef = useRef();
 
   useEffect(() => {
-    if (!debouncedValue.trim()) {
-      setSearchResult([]);
-      return;
-    }
+    // if (!debouncedValue.trim()) {
+    //   setSearchResult([]);
+    //   return;
+    // }
+    // const fetchApi = async () => {
+    //   setLoading(true);
 
-    const fetchApi = async () => {
+    //   const result = await searchServices.search(debouncedValue);
+
+    //   setSearchResult(result);
+
+    //   setLoading(false);
+    // };
+    const fetchApi = _.debounce(async () => {
       setLoading(true);
 
-      const result = await searchServices.search(debouncedValue);
+      const result = await searchServices.search(searchValue);
 
-      setSearchResult(result);
+      if (result) {
+        setSearchResult(result);
 
-      setLoading(false);
-    };
+        setLoading(false);
+      }
+    }, 300);
 
     fetchApi();
-  }, [debouncedValue]);
+  }, [searchValue]);
 
   const handleClear = () => {
     setSearchValue("");

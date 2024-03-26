@@ -3,18 +3,20 @@ import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Tippy from "@tippyjs/react/headless";
 import classNames from "classnames/bind";
+
+import Image from "~/components/Image";
 import styles from "./SuggestedAccounts.module.scss";
 import { Wrapper as PopperWrapper } from "~/components/Popper";
 import AccountPreview from "./AccountPreview/AccountPreview";
 
 const cx = classNames.bind(styles);
 
-function AccountItem() {
+function AccountItem({ data }) {
   const renderPreview = (props) => {
     return (
       <div tabIndex="-1" {...props}>
         <PopperWrapper>
-          <AccountPreview />
+          <AccountPreview data={data} />
         </PopperWrapper>
       </div>
     );
@@ -29,23 +31,23 @@ function AccountItem() {
       render={renderPreview}
     >
       <div className={cx("account-item")}>
-        <img
-          className={cx("avatar")}
-          src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/bd967834ae84b3170828cd433fa5a414~c5_100x100.jpeg?x-expires=1689908400&x-signature=gRStPTPWl83vmzthTjgrNeqnK4Y%3D"
-          alt=""
-        />
+        <Image className={cx("avatar")} src={data.avatar} alt={data.nickname} />
         <div className={cx("item-info")}>
           <p className={cx("nickname")}>
-            <strong> justinbieber94</strong>
-            <FontAwesomeIcon className={cx("check")} icon={faCircleCheck} />
+            <strong>{data.nickname}</strong>
+            {data.tick && (
+              <FontAwesomeIcon className={cx("check")} icon={faCircleCheck} />
+            )}
           </p>
-          <p className={cx("name")}>Justin Bieber</p>
+          <p className={cx("name")}>{`${data.first_name} ${data.last_name}`}</p>
         </div>
       </div>
     </Tippy>
   );
 }
 
-AccountItem.propTypes = {};
+AccountItem.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
 export default AccountItem;
