@@ -16,6 +16,7 @@ import SuggestedAccounts from "~/components/SuggestedAccounts";
 import * as userService from "~/services/userService";
 import Explore from "~/components/Explore/Explore";
 import { songs } from "~/services/songServices";
+import FooterContainer from "./Footer/FooterContainer";
 
 const cx = classNames.bind(styles);
 const PER_PAGE = 5;
@@ -76,6 +77,8 @@ function Sidebar() {
       />
 
       <Explore label="Explore songs" data={songs} />
+
+      <FooterContainer />
     </aside>
   );
 }

@@ -1,0 +1,102 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  width: 785px;
+}
+
+.video-item {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  padding: 8px 0px;
+  border-bottom: 1px solid #e3e4e3;
+}
+
+.video-info {
+  display: flex;
+  align-items: center; // Căn các phần tử con theo chiều dọc
+  justify-content: space-between;
+}
+
+.video-info_user {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  border-radius: 50%;
+  cursor: pointer;
+  height: 50px;
+  width: 56px;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.user-info {
+  flex: 1 1;
+  color: #161823;
+  margin-left: 12px;
+}
+
+.user-name {
+  font-size: 1.4rem;
+  margin-left: 4px;
+}
+
+.video-wrapper {
+  display: flex;
+  position: relative;
+}
+
+.video_item {
+  margin-left: 68px;
+  margin-top: 12px;
+  position: relative;
+}
+
+.video-function {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.video-user {
+  border-radius: 8px;
+  object-fit: cover;
+  position: relative;
+}
+
+.video_function {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-left: 20px;
+  margin-top: 6px;
+  text-align: center;
+
+  // Functions
+  .like_function,
+  .comment_function,
+  .share_function {
+    margin-left: 0px;
+    text-align: center;
+  }
+}
+
+.btn-follow {
+}
+
+.btn-function {
+  align-items: center;
+  background-color: rgba(22, 24, 35, 0.059);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  height: 48px;
+  justify-content: center;
+  width: 48px;
+}

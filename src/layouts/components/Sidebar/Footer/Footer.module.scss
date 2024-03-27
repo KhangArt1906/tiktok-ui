@@ -1,0 +1,36 @@
+.wrapper {
+  margin-top: 12px;
+  border-top: 1px solid #e3e4e3;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 8px;
+  gap: 1.2rem;
+  text-align: left;
+}
+
+.footer_list {
+}
+
+.footer-item {
+  list-style-type: none;
+}
+
+.footer-item_link {
+  color: rgba(22, 24, 35, 0.502);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 10px 6px 0 0;
+}
+
+.footer-item_link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.footer-copyright {
+  color: rgba(22, 24, 35, 0.502);
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 600;
+}

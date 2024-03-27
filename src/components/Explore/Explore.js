@@ -10,9 +10,11 @@ function Explore({ label }) {
     <div className={cx("wrapper")}>
       <p className={cx("label")}>{label}</p>
 
-      {songs.map((song) => (
-        <MusicButton key={song.id} song={song} />
-      ))}
+      <div className="sidebar-music">
+        {songs.map((song) => (
+          <MusicButton key={song.id} song={song} />
+        ))}
+      </div>
     </div>
   );
 }
