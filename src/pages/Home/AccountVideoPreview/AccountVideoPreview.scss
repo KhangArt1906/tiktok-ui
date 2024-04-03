@@ -1,54 +1,54 @@
-.wrapper {
+.video_wrapper {
   width: 320px;
   padding: 20px;
   height: auto;
 }
 
-.header {
+.video_header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.avatar {
+.video_avatar {
   width: 44px;
   height: 44px;
   border-radius: 6px;
   object-fit: cover;
 }
 
-.follow-btn {
+.video_follow-btn {
   padding: 6px 16px;
 }
 
-.body {
+.video_body {
   margin-top: 12px;
   color: #161823;
 }
 
-.nickname {
+.video_nickname {
   font-size: 1.8rem;
 }
 
-.check {
+.video_check {
   font-size: 1.4rem;
   color: #20d5ec;
   margin-left: 4px;
 }
 
-.name {
+.video_name {
   font-size: 1.6rem;
 }
 
-.analytics {
+.video_analytics {
   font-size: 1.8rem;
   margin-top: 10px;
 }
 
-.value ~ .value {
+.video_value ~ .video_value {
   margin-left: 10px;
 }
 
-.label {
+.video_label {
   color: #161823bf;
 }
