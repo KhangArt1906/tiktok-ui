@@ -5,17 +5,16 @@
 }
 
 .live_wrapper {
-  margin-left: 20px;
   margin-top: 20px;
-  padding-left: 20px;
 }
 
 .live_container {
   background-color: rgb(0, 0, 0);
   display: grid;
-  height: 600px;
-  margin-top: 20px;
-  width: 100%;
+  min-height: 650px;
+  margin-top: 10px;
+  width: 825px;
+  overflow-x: hidden;
 }
 
 .live_information {

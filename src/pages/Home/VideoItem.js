@@ -19,6 +19,9 @@ import {
 import Button from "~/components/Button";
 import { useEffect, useRef, useState } from "react";
 import AccountVideoPreview from "./AccountVideoPreview";
+import { Link } from "react-router-dom";
+import config from "~/config";
+import Profile from "../Profile";
 
 const cx = classNames.bind(styles);
 
@@ -86,30 +89,32 @@ function VideoItem({ data }) {
           delay={[800, 0]}
           render={renderPreview}
         >
-          <div className={cx("video-info_user")}>
-            <div className={cx("user-avatar")}>
-              <Image
-                className={cx("avatar")}
-                src={data.user.avatar}
-                alt={data.user.nickname}
-              />
+          <Link to={`/@${data.user.nickname}`}>
+            <div className={cx("video-info_user")}>
+              <div className={cx("user-avatar")}>
+                <Image
+                  className={cx("avatar")}
+                  src={data.user.avatar}
+                  alt={data.user.nickname}
+                />
+              </div>
+              <div className={cx("user-info")}>
+                <p className={cx("nickname")}>
+                  <strong>{data.user.nickname}</strong>
+                  {data.tick && (
+                    <FontAwesomeIcon
+                      className={cx("check")}
+                      icon={faCircleCheck}
+                    />
+                  )}
+                  <span
+                    className={cx("user-name")}
+                  >{`${data.user.last_name} ${data.user.first_name}`}</span>
+                </p>
+                <p className={cx("bio")}>{data.user.bio}</p>
+              </div>
             </div>
-            <div className={cx("user-info")}>
-              <p className={cx("nickname")}>
-                <strong>{data.user.nickname}</strong>
-                {data.tick && (
-                  <FontAwesomeIcon
-                    className={cx("check")}
-                    icon={faCircleCheck}
-                  />
-                )}
-                <span
-                  className={cx("user-name")}
-                >{`${data.user.last_name} ${data.user.first_name}`}</span>
-              </p>
-              <p className={cx("bio")}>{data.user.bio}</p>
-            </div>
-          </div>
+          </Link>
         </Tippy>
         <Button
           primary
@@ -149,21 +154,32 @@ function VideoItem({ data }) {
         <div className={cx("video_function")}>
           <div className={cx("like_function")}>
             <button small className={cx("btn-function")}>
-              <FontAwesomeIcon icon={faHeart} />
+              <FontAwesomeIcon
+                className={cx("video_function_icon")}
+                icon={faHeart}
+              />
             </button>
-            <span>{data.likes_count}</span>
+            <span className={cx("video_data_count")}>{data.likes_count}</span>
           </div>
           <div className={cx("comment_function")}>
             <button className={cx("btn-function")}>
-              <FontAwesomeIcon icon={faComment} />
+              <FontAwesomeIcon
+                className={cx("video_function_icon")}
+                icon={faComment}
+              />
             </button>
-            <span>{data.comments_count}</span>
+            <span className={cx("video_data_count")}>
+              {data.comments_count}
+            </span>
           </div>
           <div className={cx("share_function")}>
             <button className={cx("btn-function")}>
-              <FontAwesomeIcon icon={faShare} />
+              <FontAwesomeIcon
+                className={cx("video_function_icon")}
+                icon={faShare}
+              />
             </button>
-            <span>{data.shares_count}</span>
+            <span className={cx("video_data_count")}>{data.shares_count}</span>
           </div>
         </div>
       </div>

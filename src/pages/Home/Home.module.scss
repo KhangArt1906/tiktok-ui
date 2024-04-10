@@ -11,8 +11,9 @@
   margin-left: 20px;
   padding: 8px 0px;
   border-bottom: 1px solid #d0d2d0;
-  max-width: 550px;
+  min-width: 800px;
   height: auto;
+  overflow-x: hidden;
 }
 
 .video-wrapper {
@@ -25,8 +26,8 @@
 }
 
 .video-user {
-  width: 476px;
-  height: 576px;
+  width: 350px;
+  height: 550px;
 }
 
 .control-buttons {
@@ -154,6 +155,16 @@
     margin-left: 0px;
     text-align: center;
   }
+
+  .video_function_icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .video_data_count {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
 }
 
 .btn-follow {
@@ -165,7 +176,7 @@
   border-radius: 50%;
   cursor: pointer;
   display: flex;
-  height: 48px;
+  height: 52px;
   justify-content: center;
-  width: 48px;
+  width: 52px;
 }

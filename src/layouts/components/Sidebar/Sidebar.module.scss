@@ -1,5 +1,14 @@
 .wrapper {
-  width: 356px;
   padding: 20px 0 26px 8px;
   margin-left: -18px;
+  max-height: calc(100vh - var(--default-layout-header-height));
+  overflow-y: hidden;
+  overscroll-behavior: contain;
+  position: fixed;
+  width: calc(var(--default-layout-width) * 0.286);
+  z-index: 10;
+}
+
+.wrapper:hover {
+  overflow-y: overlay;
 }

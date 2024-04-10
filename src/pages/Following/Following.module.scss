@@ -4,22 +4,22 @@
 
 .following_container {
   padding: 4px;
-  margin: 0rem 0rem 0rem 3rem;
+  margin: 0rem;
 }
 
 .following_wrapper {
   grid-gap: 1rem;
   display: grid;
   row-gap: 1rem;
-  column-gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+  column-gap: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 
 .following_video_link {
   position: relative;
   border-radius: 10px;
-  height: 350px;
-  width: 240px;
+  height: 380px;
+  width: 260px;
   overflow: hidden;
 }
 
