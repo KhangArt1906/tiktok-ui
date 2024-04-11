@@ -7,8 +7,7 @@ import { Wrapper as PopperWrapper } from "~/components/Popper";
 import AccountItem from "~/components/AccountItem";
 import classNames from "classnames/bind";
 import { SearchIcon } from "~/components/Icons";
-import { useDebounce } from "~/hooks";
-import _, { lowerFirst } from "lodash";
+import _ from "lodash";
 import styles from "./Search.module.scss";
 import { useEffect, useState, useRef } from "react";
 
@@ -20,28 +19,9 @@ function Search() {
   const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // const debouncedValue = useDebounce(searchValue, 500);
-
-  // console.log(debouncedValue);
-  // const debouncedValuee = _.debounce(() => setSearchValue(searchValue), 300);
-
-  // console.log(debouncedValuee);
   const inputRef = useRef();
 
   useEffect(() => {
-    // if (!debouncedValue.trim()) {
-    //   setSearchResult([]);
-    //   return;
-    // }
-    // const fetchApi = async () => {
-    //   setLoading(true);
-
-    //   const result = await searchServices.search(debouncedValue);
-
-    //   setSearchResult(result);
-
-    //   setLoading(false);
-    // };
     const fetchApi = _.debounce(async () => {
       setLoading(true);
 
@@ -49,12 +29,15 @@ function Search() {
 
       if (result) {
         setSearchResult(result);
-
         setLoading(false);
       }
-    }, 300);
+    }, 200);
 
-    fetchApi();
+    if (searchValue.trim() !== "") {
+      fetchApi();
+    } else {
+      setLoading(false); // Đặt loading thành false nếu searchValue rỗng
+    }
   }, [searchValue]);
 
   const handleClear = () => {
@@ -76,8 +59,6 @@ function Search() {
   };
 
   return (
-    //Using a wrapper <div> or <span> tag around the reference element solves
-    // this by creating a new parentNode context.
     <div>
       <HeadlessTippy
         interactive
@@ -110,7 +91,8 @@ function Search() {
             </button>
           )}
 
-          {loading && (
+          {/* Hiển thị Spinner icon nếu loading true và có kết quả tìm kiếm */}
+          {loading && searchResult.length > 0 && (
             <FontAwesomeIcon className={cx("loading")} icon={faSpinner} />
           )}
           <button

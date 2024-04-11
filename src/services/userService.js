@@ -16,7 +16,11 @@ export const getSuggested = async ({ page, perPage }) => {
 
 export const getUser = async ({ nickname }) => {
   try {
-    const res = await request.get(`users/@${nickname}`);
+    const res = await request.get(`users/@${nickname}`, {
+      params: {
+        nickname,
+      },
+    });
     return res.data;
   } catch (error) {
     console.log(error);

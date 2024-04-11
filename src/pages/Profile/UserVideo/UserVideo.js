@@ -4,7 +4,7 @@ import styles from "./UserVideo.module.scss";
 import { getUser } from "~/services/userService";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
@@ -20,12 +20,19 @@ const UserVideos = ({ nickname }) => {
 
   const fetchUserVideos = async () => {
     try {
+      setLoading(true); // Bắt đầu quá trình tải
       const userData = await getUser({ nickname });
-      setVideos(userData.videos);
-      setLoading(false);
+      // Kiểm tra xem dữ liệu video có hợp lệ không trước khi cập nhật state
+      if (userData && userData.videos && Array.isArray(userData.videos)) {
+        setVideos(userData.videos); // Cập nhật dữ liệu video
+        setError(null); // Xóa bất kỳ lỗi nào nếu có
+      } else {
+        setError("Invalid video data"); // Đặt lỗi nếu dữ liệu video không hợp lệ
+      }
     } catch (error) {
-      setError(error.message);
-      setLoading(false);
+      setError(error.message); // Xử lý lỗi
+    } finally {
+      setLoading(false); // Kết thúc quá trình tải
     }
   };
 

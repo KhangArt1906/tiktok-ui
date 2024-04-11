@@ -30,7 +30,7 @@ function FollowingAccount() {
         <div className={cx("following_wrapper")}>
           {followingAccounts.map((following) => (
             <Link
-              to={`/user/${following.id}`}
+              to={`/@${following.nickname}`}
               className={cx("following_video_link")}
               key={following.id}
             >
